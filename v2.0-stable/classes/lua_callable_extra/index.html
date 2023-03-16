@@ -12,7 +12,7 @@
         <link rel="prev" href="../lua_error/">
       
       
-        <link rel="next" href="../../examples/objects/">
+        <link rel="next" href="../lua_tuple/">
       
       <link rel="icon" href="../../assets/sandcastle_icon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.5">
@@ -472,6 +472,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lua_tuple/" class="md-nav__link">
+        LuaTuple
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -631,10 +645,10 @@
 
 <h1 id="luacallableextra">LuaCallableExtra</h1>
 <h2 id="description">Description</h2>
-<p>A wrapper for <a href="https://docs.godotengine.org/en/4.0/classes/class_callable.html">Callables</a> used to create functions that accept either any amount of arguments from Lua as a single <a href="./LuaTuple">LuaTuple</a> parameter or that accept a reference to the <a href="./LuaAPI">LuaAPI</a> object from which the method was invoked, or both.</p>
+<p>A wrapper for <a href="https://docs.godotengine.org/en/4.0/classes/class_callable.html">Callables</a> used to create functions that accept either any amount of arguments from Lua as a single <a href="../lua_tuple/">LuaTuple</a> parameter or that accept a reference to the <a href="../lua_api/">LuaAPI</a> object from which the method was invoked, or both.</p>
 <h2 id="methods">Methods</h2>
 <h3 id="with_ref">with_ref <em>LuaCallableExtra</em></h3>
-<p>Static method that creates a LuaCallableExtra. A reference to the <a href="./LuaAPI">LuaAPI</a> object that invoked the method will be passed as an argument.</p>
+<p>Static method that creates a LuaCallableExtra. A reference to the <a href="../lua_api/">LuaAPI</a> object that invoked the method will be passed as an argument.</p>
 <h4 id="parameters">Parameters</h4>
 <table>
 <thead>
@@ -679,7 +693,7 @@
 </code></pre></div></p>
 <hr />
 <h3 id="with_tuple">with_tuple <em>LuaCallableExtra</em></h3>
-<p>Static method that creates a LuaCallableExtra. By specifying the number of expected arguments in this function, the module will be able to add all, if any, extra arguments to a <a href="./LuaTuple">LuaTuple</a>, which will always be the last parameter.</p>
+<p>Static method that creates a LuaCallableExtra. By specifying the number of expected arguments in this function, the module will be able to add all, if any, extra arguments to a <a href="../lua_tuple/">LuaTuple</a>, which will always be the last parameter.</p>
 <h4 id="parameters_1">Parameters</h4>
 <table>
 <thead>
@@ -695,7 +709,7 @@
 </tr>
 <tr>
 <td>arg count: <code>number</code></td>
-<td>The number of expected arguments including the tuple one.</td>
+<td>The number of expected arguments excluding the tuple one.</td>
 </tr>
 </tbody>
 </table>
@@ -742,7 +756,7 @@
 </code></pre></div></p>
 <hr />
 <h3 id="bind">set_info <em>void</em></h3>
-<p>Alternative way to configure a <a href=".\LuaCallableExtra">LuaCallableExtra</a>. This method is particularly useful for methods that expect both a <a href="./LuaTuple">LuaTuple</a> and a reference to the <a href="./LuaAPI">LuaAPI</a> object.</p>
+<p>Alternative way to configure a <a href="./">LuaCallableExtra</a>. This method is particularly useful for methods that expect both a <a href="../lua_tuple/">LuaTuple</a> and a reference to the <a href="../lua_api/">LuaAPI</a> object.</p>
 <h4 id="parameters_2">Parameters</h4>
 <table>
 <thead>
@@ -758,20 +772,57 @@
 </tr>
 <tr>
 <td>arg count: <code>number</code></td>
-<td>The number of expected arguments including the tuple one.</td>
+<td>The number of expected arguments excluding the tuple one.</td>
 </tr>
 <tr>
 <td>isTuple: <code>bool</code></td>
-<td>Wether or not the last parameter should be of the type <a href="./LuaTuple">LuaTuple</a>.</td>
+<td>Wether or not the last parameter should be of the type <a href="../lua_tuple/">LuaTuple</a>.</td>
 </tr>
 <tr>
 <td>wantsRef: <code>bool</code></td>
-<td>Wether or not to pass a reference to <a href="./LuaAPI">LuaAPI</a> object.</td>
+<td>Wether or not to pass a reference to the <a href="../lua_api/">LuaAPI</a> object.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="returns_2">Returns</h4>
 <p><em>void</em></p>
+<h4 id="example_2">Example</h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">var</span><span class="w"> </span><span class="n">lua</span><span class="p">:</span><span class="w"> </span><span class="n">LuaAPI</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="n">lua</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LuaAPI</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="c1"># Wrap custom_print_function with a LuaCallableExtra.</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">luaCallableExtra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LuaCallableExtra</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="n">luaCallableExtra</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">custom_print_function</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="c1"># This will replace the built-in print function with ours.</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">push_variant</span><span class="p">(</span><span class="s2">&quot;print&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">luaCallableExtra</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">do_string</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="s2">        print(&#39;Hello!&#39;, &#39; How are you?&#39;, &#39; I havent seen you in &#39;, 10, &#39; days.&#39;)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="k">func</span><span class="w"> </span><span class="n">custom_print_function</span><span class="p">(</span><span class="n">lua_object</span><span class="p">:</span><span class="w"> </span><span class="n">LuaAPI</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="n">LuaTuple</span><span class="p">):</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">to_array</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot; -- &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lua_object</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Example Output</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[&quot;Hello!&quot;, &quot; How are you?&quot;, &quot; I havent seen you in &quot;, 10, &quot; days.&quot;] -- &lt;LuaAPI#-9223372010447437394&gt;
+</code></pre></div></p>
 <hr />
 
 
@@ -815,13 +866,13 @@
         
         
           
-          <a href="../../examples/objects/" class="md-footer__link md-footer__link--next" aria-label="Next: Working with Objects in Lua" rel="next">
+          <a href="../lua_tuple/" class="md-footer__link md-footer__link--next" aria-label="Next: LuaTuple" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Next
                 </span>
-                Working with Objects in Lua
+                LuaTuple
               </div>
             </div>
             <div class="md-footer__button md-icon">
