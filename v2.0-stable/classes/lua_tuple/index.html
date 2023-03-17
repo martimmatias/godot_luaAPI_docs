@@ -780,8 +780,36 @@
 <h4 id="returns">Returns</h4>
 <p><em>LuaTuple</em></p>
 <h4 id="example">Example</h4>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">var</span><span class="w"> </span><span class="n">lua</span><span class="p">:</span><span class="w"> </span><span class="n">LuaAPI</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="n">lua</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LuaAPI</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">push_variant</span><span class="p">(</span><span class="s2">&quot;getPosition&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">my_get_position</span><span class="p">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">do_string</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="s2">    local x, y, z = getPosition()</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s2">    print(x, y, z)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">func</span><span class="w"> </span><span class="n">my_get_position</span><span class="p">():</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">LuaTuple</span><span class="o">.</span><span class="n">from_array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Output</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>10, 3, 7
+</code></pre></div></p>
 <hr />
 <h3 id="clear">clear <em>void</em></h3>
 <p>Removes all elements from the LuaTuple's stack.</p>
@@ -908,6 +936,49 @@
 <p>None</p>
 <h4 id="returns_10">Returns</h4>
 <p><em>array</em></p>
+<h4 id="example_1">Example</h4>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">extends</span><span class="w"> </span><span class="n">Node2D</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">var</span><span class="w"> </span><span class="n">lua</span><span class="p">:</span><span class="w"> </span><span class="n">LuaAPI</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">func</span><span class="w"> </span><span class="n">_ready</span><span class="p">():</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="n">lua</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LuaAPI</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="c1"># Wrap custom_print_function with a LuaCallableExtra.</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="k">var</span><span class="w"> </span><span class="n">luaCallableExtra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LuaCallableExtra</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">    </span><span class="n">luaCallableExtra</span><span class="o">.</span><span class="n">set_info</span><span class="p">(</span><span class="n">custom_print_function</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">,</span><span class="w"> </span><span class="bp">true</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="c1"># This will replace the built-in print function with ours.</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">push_variant</span><span class="p">(</span><span class="s2">&quot;print&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">luaCallableExtra</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">    </span><span class="n">lua</span><span class="o">.</span><span class="n">do_string</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="s2">        print(&#39;Hello!&#39;, &#39; How are you?&#39;, &#39; I havent seen you in &#39;, 10, &#39; days.&#39;)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="s2">    &quot;&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="k">func</span><span class="w"> </span><span class="n">custom_print_function</span><span class="p">(</span><span class="n">lua_object</span><span class="p">:</span><span class="w"> </span><span class="n">LuaAPI</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="p">:</span><span class="w"> </span><span class="n">LuaTuple</span><span class="p">):</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">to_array</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot; -- &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lua_object</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Example Output</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[&quot;Hello!&quot;, &quot; How are you?&quot;, &quot; I havent seen you in &quot;, 10, &quot; days.&quot;] -- &lt;LuaAPI#-9223372010447437394&gt;
+</code></pre></div></p>
 <hr />
 
 
