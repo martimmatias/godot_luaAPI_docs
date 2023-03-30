@@ -708,7 +708,7 @@
 <p>You can learn more about all available metamethods in the official <a href="https://www.lua.org/manual/5.3/manual.html#2.4">Lua manual</a>.</p>
 </div>
 <h4 id="__index">__index</h4>
-<p>The __index metamethod is called when Lua tries to get a value from an object. This is the same as if you were using the <code>.</code> operator in Lua. Essentially, this is what the <code>lua_fields()</code> method is doing. However, you may want to do more than just return a value. You can also raise an error or return a custom value. </p>
+<p>The __index metamethod is called when Lua tries to get a value from an object. This is the same as if you were using the <code>.</code> operator in Lua or the <code>[]</code> operator. Essentially, this is what the <code>lua_fields()</code> method is doing. However, you may want to do more than just return a value. You can also raise an error or return a custom value. </p>
 <p>The __index method must take two arguments. The first is a reference to the <a href="../../classes/lua_api/">LuaAPI</a> object. The second is the name of the field/method being requested. The method may return the value of the field/method or a <a href="../../classes/lua_error/">LuaError</a> to raise an error.</p>
 <p>Here is a example of that:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
